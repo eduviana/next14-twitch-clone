@@ -16,21 +16,21 @@ const CreatorPage = async ({
   const user = await getUserByUsername(params.username);
 
   
-  console.log(user.stream)
+  
 
-  // if (!user || user.externalUserId !== externalUser?.id || !user.stream) {
-  //   throw new Error("Unauthorized");
-  // }
+  if (!user || user.externalUserId !== externalUser?.id || !user.stream) {
+    throw new Error("Unauthorized");
+  }
 
-  // return ( 
-  //   <div className="h-full">
-  //     <StreamPlayer
-  //       user={user}
-  //       stream={user.stream}
-  //       isFollowing
-  //     />
-  //   </div>
-  // );
+  return ( 
+    <div className="h-full">
+      <StreamPlayer
+        user={user}
+        stream={user.stream}
+        isFollowing
+      />
+    </div>
+  );
 }
  
 export default CreatorPage;
